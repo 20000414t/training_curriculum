@@ -30,11 +30,19 @@ class CalendarsController < ApplicationController
     plans = Plan.where(date: @todays_date..@todays_date + 6)
 
     7.times do |x|
+<<<<<<< Updated upstream
       todayPlans = []
       plans.each do |plan|
         todayPlans.push(plan.plan) if plan.date == @todays_date + x
       end
       days = {month: (@todays_date + x).month, date: (@todays_date+x).day, plans: todayPlans}
+=======
+      today_plans = []
+      plans.each do |plan|
+        today_plans.push(plan.plan) if plan.date == @todays_date + x
+      end
+      days = {:month => '(@todays_date + x).month', :date => '@todays_date+x).day', :plans => 'today_plans'}
+>>>>>>> Stashed changes
       @week_days.push(days)
     end
 
