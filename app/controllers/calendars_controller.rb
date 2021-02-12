@@ -4,6 +4,7 @@ class CalendarsController < ApplicationController
   def index
     get_week
     @plan = Plan.new
+    # @member = plans.select("plan")
   end
 
   # 予定の保存
@@ -17,6 +18,7 @@ class CalendarsController < ApplicationController
   def plan_params
     params.require(:plan).permit(:date, :plan)
   end
+  
 
   def get_week
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
@@ -37,7 +39,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         todayPlans.push(plan.plan) if plan.date == @todays_date + x
       end
-      require "date"
+      
       wday_num = Date.today.wday + x
       if wday_num >= 7
         wday_num = wday_num -7
