@@ -4,7 +4,6 @@ class CalendarsController < ApplicationController
   def index
     get_week
     @plan = Plan.new
-    # @member = plans.select("plan")
   end
 
   # 予定の保存
